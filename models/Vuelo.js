@@ -14,9 +14,16 @@ class Vuelo extends Producto {
         }
         this.aerolinea = aerolinea; // Aerolínea del vuelo
         this.precio = precio; // Precio del vuelo
+        if (!precio || precio <= 0) {
+            throw new Error("El precio es obligatorio y debe ser mayor a cero");
+        }
     }
     getPrecio() {
         return this.precio;
     }
-
 }
+
+module.exports = Vuelo;
+// Ejemplo de uso:
+// const vuelo = new Vuelo("2023-10-01", "2023-10-10", "Aerolínea Ejemplo", 50000);
+// console.log(vuelo.getPrecio()); // Debería imprimir 50000

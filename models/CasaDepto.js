@@ -1,15 +1,17 @@
 class CasaDepto extends Alojamiento {
-    
-    constructor(direccion, precioPorNoche, cantidadAmbientes) {
+    constructor(direccion, cantidadAmbientes, cantidadNoches) {
         super(direccion);
-        if (!precioPorNoche || precioPorNoche <= 0) {
-            throw new Error("El precio por noche es obligatorio y debe ser mayor a cero");
-        }
+
         if (!cantidadAmbientes || cantidadAmbientes <= 0) {
             throw new Error("La cantidad de ambientes es obligatoria y debe ser mayor a cero");
         }
-        this.precioPorNoche = precioPorNoche; // Precio por noche del alojamiento
-        this.cantidadAmbientes = cantidadAmbientes; // Cantidad de ambientes del alojamiento
+
+        if (!cantidadNoches || cantidadNoches <= 0) {
+            throw new Error("La cantidad de noches debe ser mayor a cero");
+        }
+
+        this.cantidadAmbientes = cantidadAmbientes;
+        this.cantidadNoches = cantidadNoches;
     }
 
     getPrecio() {
@@ -22,7 +24,10 @@ class CasaDepto extends Alojamiento {
             precioPorNoche = 50000;
         }
 
-        return precioPorNoche * this.noches;
+        return precioPorNoche * this.cantidadNoches;
     }
-
 }
+module.exports = CasaDepto;
+// Ejemplo de uso:
+// const casa = new CasaDepto("Calle Ejemplo", 3, 5);
+// console.log(casa.getPrecio()); // Debería imprimir 150000 (30000 * 5 noches)
