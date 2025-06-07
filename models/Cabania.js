@@ -1,33 +1,38 @@
 const CasaDepto = require("./CasaDepto");
 
 class Cabania extends CasaDepto {
-    constructor(direccion, cantidadAmbientes, cantidadNoches, cantidadCasas){
-        super(direccion,cantidadAmbientes,cantidadNoches);
-        
-        if(!cantidadCasas || cantidadCasas <= 0){
-            throw new Error ("La cantidad de casas debe ser mayor a cero")
+    constructor(direccion, cantidadAmbientes, cantidadNoches, cantidadCasas) {
+        super(direccion, cantidadAmbientes, cantidadNoches);
+
+        if (!cantidadCasas || cantidadCasas <= 0) {
+            throw new Error("La cantidad de casas debe ser mayor a cero")
         }
 
-         this.cantidadCasas = cantidadCasas
+        this.cantidadCasas = cantidadCasas
 
     }
 
-    getPrecio(){
-        const precioPorCasa = super.getPrecio();
+    getPrecio() {
+        const precioUnaCasa = super.getPrecio(); // Precio total de una sola casa por todas las noches
 
-        //Si solo se alquila una casa no hay descuento
-        if(this.cantidadCasas === 1 ){
-            return precioPorCasa;
+        let descuentoPorcentaje = 0;
+
+        if (this.cantidadCasas > 1) {
+            descuentoPorcentaje = 10 * this.cantidadCasas;
+            if (descuentoPorcentaje > 50) descuentoPorcentaje = 50;
         }
 
+        const precioTotalSinDescuento = precioUnaCasa * this.cantidadCasas;
+        const descuento = (descuentoPorcentaje / 100) * precioTotalSinDescuento;
+
+        return precioTotalSinDescuento - descuento;
+    }
+
+    getDescuento() {
         let descuentoPorcentaje = 10 * this.cantidadCasas;
         if (descuentoPorcentaje > 50) descuentoPorcentaje = 50;
 
-        const descuento = (descuentoPorcentaje / 100) * precioPorCasa;
-
-        const precioConDescuento = precioPorCasa - descuento;
-
-        return precioConDescuento * this.cantidadCasas;
+        return descuentoPorcentaje;
     }
 }
 module.exports = Cabania;

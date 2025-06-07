@@ -16,5 +16,6 @@ class Alojamiento extends Producto {
     getDireccion() {
         return this.direccion; // Método para obtener la dirección
     }
-
 }
+
+module.exports = Alojamiento;

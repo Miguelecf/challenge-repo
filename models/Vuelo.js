@@ -49,6 +49,12 @@ class Vuelo extends Producto {
       precio: this.precio
     };
   }
+  toString() {
+    const fechaIdaStr = this.fechaIda.toLocaleDateString();
+    const fechaVueltaStr = this.fechaVuelta ? this.fechaVuelta.toLocaleDateString() : 'N/A';
+    return `Vuelo: Aerolínea ${this.aerolinea}, Ida: ${fechaIdaStr}, Vuelta: ${fechaVueltaStr}, Precio: $${this.precio}`;
+  }
+
 }
 module.exports = Vuelo;
 // Ejemplo de uso:

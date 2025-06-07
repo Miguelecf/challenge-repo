@@ -31,15 +31,7 @@ class Usuario {
     }
 
     getListaProductosComprados() {
-        return this.listaproductos.map(producto => producto.getDetalles()); // Método para obtener los detalles de los productos comprados
-    }
-    getDetalles() {
-        return {
-            id: this.id,
-            nombreUsuario: this.nombreUsuario,
-            presupuesto: this.presupuesto,
-            listaProductos: this.getListaProductosComprados()
-        }; // Método para obtener los detalles del usuario
+        return this.listaproductos;
     }
 }
 module.exports = Usuario;
