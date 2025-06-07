@@ -1,0 +1,3 @@
+class CasaDepto extends Alojamiento{
+
+}
