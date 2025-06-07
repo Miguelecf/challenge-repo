@@ -37,4 +37,5 @@ try {
 }
 
 console.log("\n Productos adquiridos por el usuario: ");
-user.getListaProductos();
+console.log(user.getListaProductos());
+
