@@ -10,5 +10,9 @@ class Alojamiento extends Producto {
     getPrecio() {
         throw new Error("Método getPrecio() debe ser implementado en la subclase");
     }
-    
+
+    getDireccion() {
+        return this.direccion; // Método para obtener la dirección
+    }
+
 }

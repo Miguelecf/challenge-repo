@@ -26,6 +26,12 @@ class CasaDepto extends Alojamiento {
 
         return precioPorNoche * this.cantidadNoches;
     }
+    getCantidadAmbientes() {
+        return this.cantidadAmbientes;
+    }
+    getCantidadNoches() {
+        return this.cantidadNoches;
+    }
 }
 module.exports = CasaDepto;
 // Ejemplo de uso:
