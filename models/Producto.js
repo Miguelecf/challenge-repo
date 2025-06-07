@@ -1,4 +1,6 @@
-class Producto { //Esto debería ser una clase ? 
+const Producto = require("./Producto");
+
+class Producto { 
     constructor(){
         if (new.target === Producto) {
             throw new TypeError("Cannot construct Producto instances directly");
@@ -9,3 +11,4 @@ class Producto { //Esto debería ser una clase ?
         throw new Error("Metodo getPrecio() debe ser implementado en la subclase");
     }
 }
+module.exports = Producto;

@@ -1,3 +1,6 @@
+const Producto = require("./Producto");
+// Clase Vuelo que hereda de Producto
+
 class Vuelo extends Producto {
   constructor(fechaIda, fechaVuelta, aerolinea, precio) {
     super();

@@ -1,3 +1,6 @@
+const Alojamiento = require('./Alojamiento');
+// Clase CasaDepto que hereda de Alojamiento
+
 class CasaDepto extends Alojamiento {
     constructor(direccion, cantidadAmbientes, cantidadNoches) {
         super(direccion);
