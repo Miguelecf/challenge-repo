@@ -1,3 +1,5 @@
+const Producto = require("./Producto");
+
 class Alojamiento extends Producto {
   constructor(direccion) {
     super();

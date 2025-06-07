@@ -1,4 +1,4 @@
-const Producto = require("./Producto");
+
 
 class Producto { 
     constructor(){
