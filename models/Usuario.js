@@ -29,6 +29,18 @@ class Usuario {
         this.presupuesto -= precio; // Descontar el precio del producto del presupuesto
         this.listaproductos.push(producto); // Agregar el producto a la lista de productos comprados
     }
+
+    getListaProductosComprados() {
+        return this.listaproductos.map(producto => producto.getDetalles()); // Método para obtener los detalles de los productos comprados
+    }
+    getDetalles() {
+        return {
+            id: this.id,
+            nombreUsuario: this.nombreUsuario,
+            presupuesto: this.presupuesto,
+            listaProductos: this.getListaProductosComprados()
+        }; // Método para obtener los detalles del usuario
+    }
 }
 module.exports = Usuario;
 // Ejemplo de uso:
